@@ -2,7 +2,7 @@
 ## About
 Program to run facial recognition after training on faces known, and then testing on unknown faces to find matches.<br>
 >These programs do not work on the side view of faces.
-The python library is used from [GitHub](https://github.com/ageitgey/face_recognition)
+The face_recognition python library is used from [GitHub](https://github.com/ageitgey/face_recognition)
 
 ## To run:
 First, install the required libraries by running the following command:
@@ -28,4 +28,5 @@ $ python3 test.py
 ```
 To see the output, open the folder named "processed" and open images from there. They will be smaller, optimized images but the program runs faster. And the output is pretty accurate.
 
-
+####The folders in the repository:
+The already created known_faces, unknown_faces, processed folders are from the tests I ran personally.
