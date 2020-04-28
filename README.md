@@ -28,5 +28,5 @@ $ python3 test.py
 ```
 To see the output, open the folder named "processed" and open images from there. They will be smaller, optimized images but the program runs faster. And the output is pretty accurate.
 
-####The folders in the repository:
+#### The folders in the repository:
 The already created known_faces, unknown_faces, processed folders are from the tests I ran personally.
