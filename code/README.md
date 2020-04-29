@@ -29,4 +29,4 @@ To test on unknown images placed in the unknown_faces directory:
 $ python3 test.py
 ```
 To see the output, open the folder named "processed" and open images from there. They will be smaller, optimized images but the program runs faster. And the output is pretty accurate.<br>
-> ## For less accurate results, but almost instantaneous testing, you can change the ``` MODEL ``` variable in ``` test.py ``` to ``` "hog" ```.
+> #### For less accurate results, but almost instantaneous testing, you can change the ``` MODEL ``` variable in ``` test.py ``` to ``` "hog" ```.
