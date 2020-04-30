@@ -31,7 +31,7 @@ The face_recognition python library is used from [GitHub](https://github.com/age
 ## To run:
 First, install the required libraries by running the following command:
 ```sh
-$ pip3 install opencv-python face_recognition numpy pickle-mixin Pillow
+$ pip3 install opencv-python face_recognition numpy pickle-mixin Pillow serial
 ```
 Then, create directories:
 ```sh
