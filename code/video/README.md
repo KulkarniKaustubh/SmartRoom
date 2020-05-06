@@ -8,8 +8,8 @@ This code is for connecting to the Arduino Uno via the serial port, lighting up 
 ## trigger_led
 The Arduino code to capture serial port activity and light up the LED when needed.
 
-#Running:
-###Download all the files
+# Running:
+### Download face_functions into the same directory as the programs to run
 ## Training:
 ```sh
 $ python3 training.py -d <data folder> -k <folder containing known images>
