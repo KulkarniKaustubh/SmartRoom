@@ -11,6 +11,8 @@ datapath = getDataPath()
 vid = cv2.VideoCapture(0)
 time.sleep(2.0)
 
+fps = FPS().start()
+
 while (True):
     ret, img = vid.read()
     image = Image.fromarray(img)
@@ -18,11 +20,13 @@ while (True):
     image = np.asarray(image)
 
     locations = detectFace(image)
-    recognizeFace(image, locations, datapath)
+    if locations:
+        recognizeFace(image, locations, datapath)
 
     cv2.imshow ('image', image)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
 
 vid.release()
 cv2.destroyAllWindows()
