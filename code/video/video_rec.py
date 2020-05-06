@@ -26,17 +26,7 @@ vid = cv2.VideoCapture(0)
 
 while (True):
     ret, image = vid.read()
-    Image.fromarray(image).save(f"{PROCESSED}/{filename}")
-    image = Image.open(f"{PROCESSED}/{filename}")
-    image.thumbnail((600, 600), Image.ANTIALIAS)
-    image.save (f"{PROCESSED}/{filename}", dpi=(600,600))
-    image = fr.load_image_file(f"{PROCESSED}/{filename}")
     locations = fr.face_locations(image, model=MODEL)
-    os.remove (f"{PROCESSED}/{filename}")
-    # loc = face_cascade.detectMultiScale(image, 1.5, 5)
-    # locations = []
-    # for (x, y, w, h) in locations:
-    #     locations.append((y, x+w, y+h, x))
 
     encodings = fr.face_encodings(image, locations)
 
