@@ -19,7 +19,7 @@ OR
 $ python3 training.py --data <data folder> --known <folder containing known images>
 ```
 
-##Face recognition (less laggy and smoother):
+## Face recognition (less laggy and smoother):
 ```sh
 $ python3 raspi_optimized.py -d <data folder>
 ```
