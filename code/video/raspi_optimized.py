@@ -1,0 +1,78 @@
+import face_recognition as fr
+import os
+import numpy as np
+import cv2
+import pickle
+import time
+from PIL import Image
+
+def read (filename):
+    file = open(filename, 'rb')
+    temp_list = pickle.load(file)
+    file.close()
+    return temp_list
+
+known_faces = read('../data/encoded_faces.data')
+known_names = read('../data/encoded_names.data')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+
+MODEL = "hog"
+TOLERANCE = 0.5
+FRAME_THICKNESS = 3
+FONT_THICKNESS = 1
+PROCESSED = "processed"
+
+vid = cv2.VideoCapture(0)
+time.sleep(2.0)
+
+while (True):
+    ret, img = vid.read()
+    image = Image.fromarray(img)
+    image.thumbnail((700,700))
+    image = np.asarray(image)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+    loc = face_cascade.detectMultiScale(gray, 1.1, 5)
+    locations = []
+    for (x, y, w, h) in loc:
+        locations.append((y, x+w, y+h, x))
+
+    encodings = fr.face_encodings(rgb, locations)
+
+    for face_encoding, face_location in zip(encodings, locations):
+        recognized = []
+        index = -1
+
+        for face in known_faces:
+            results = fr.compare_faces(face, face_encoding, TOLERANCE)
+            index = index + 1
+            match = None
+
+            if True in results:
+                match = known_names[index]
+
+                top_left = (face_location[3]-5, face_location[0]-10)     #top, right, bottom, left
+                bottom_right = (face_location[1]+10, face_location[2])
+                color = [0, 255, 0]
+                cv2.rectangle(image, top_left, bottom_right, color, FRAME_THICKNESS)
+
+                top_left = (face_location[3]-20, face_location[2])
+                bottom_right = (face_location[1]+30, face_location[2]+20)
+                color = [0, 0, 0]
+                cv2.rectangle(image, top_left, bottom_right, color, cv2.FILLED)
+                cv2.putText(image,
+                            match,
+                            (face_location[3]-10, face_location[2]+15),
+                            cv2.FONT_HERSHEY_SIMPLEX,
+                            0.5,
+                            (200, 200, 200),
+                            FONT_THICKNESS)
+                break
+
+    cv2.imshow ('image', image)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+vid.release()
+cv2.destroyAllWindows()
