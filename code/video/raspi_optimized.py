@@ -11,8 +11,6 @@ datapath = getDataPath()
 vid = cv2.VideoCapture(0)
 time.sleep(2.0)
 
-fps = FPS().start()
-
 while (True):
     ret, img = vid.read()
     image = Image.fromarray(img)
