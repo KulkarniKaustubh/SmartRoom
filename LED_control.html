@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 13.0px Menlo; color: #262626; -webkit-text-stroke: #262626; background-color: #f2f2f2}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"><b>&lt;html&gt;</b></span></p>
+<p class="p1"><span class="s1"><b>&lt;head&gt;</b></span></p>
+<p class="p1"><span class="s1"><b>&lt;meta name="viewport" content="width=device-width" /&gt;</b></span></p>
+<p class="p1"><span class="s1"><b>&lt;title&gt;LED Control&lt;/title&gt;</b></span></p>
+<p class="p1"><span class="s1"><b>&lt;/head&gt;</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">       </span>&lt;body&gt;</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">       </span>&lt;center&gt;&lt;h1&gt;LED Control&lt;/h1&gt; <span class="Apple-converted-space">     </span></b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">         </span>&lt;form method="get" action="index.php"&gt; <span class="Apple-converted-space">               </span></b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">            </span>&lt;input type="submit" style = "font-size: 14 pt" value="OFF" name="off"&gt;</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">            </span>&lt;input type="submit" style = "font-size: 14 pt" value="ON" name="on"&gt;</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">         </span>&lt;/form&gt;</b>​​​</span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">                         </span>&lt;/center&gt;</b></span></p>
+<p class="p1"><span class="s1"><b>&lt;?php</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">    </span>shell_exec("gpio -g mode 27 out");</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">    </span>if(isset($_GET['off']))</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">        </span>{</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">                        </span>echo "LED is off";</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">                        </span>shell_exec("/usr/local/bin/gpio -g write 27 0");</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">        </span>}</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">            </span>else if(isset($_GET['on']))</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">            </span>{</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">                        </span>echo "LED is on";</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">                        </span>shell_exec("gpio -g write 27 1");</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">            </span>}</b></span></p>
+<p class="p1"><span class="s1"><b>?&gt;</b></span></p>
+<p class="p1"><span class="s1"><b><span class="Apple-converted-space">   </span>&lt;/body&gt;</b></span></p>
+<p class="p1"><span class="s1"><b>&lt;/html&gt;</b></span></p>
+</body>
+</html>
