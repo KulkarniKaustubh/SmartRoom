@@ -1,0 +1,5 @@
+rootProject.name='Open CV Face Rec'
+include ':app'
+def openCVSdk = '/home/kaustubh/Stuff/RaspberryPi/OpenCV-android-sdk'
+include ':OpenCVLibrary'
+project(':OpenCVLibrary').projectDir = file(openCVSdk + '/sdk')
