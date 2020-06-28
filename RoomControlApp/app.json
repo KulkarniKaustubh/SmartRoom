@@ -1,0 +1,12 @@
+{
+  "name": "RoomControlApp",
+  "displayName": "RoomControlApp",
+  "expo": {
+    "name": "RoomControlApp",
+    "slug": "RoomControlApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
