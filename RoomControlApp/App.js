@@ -5,7 +5,8 @@ import {
     Text,
     View,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    Keyboard
 } from 'react-native'
 import styles from './styles.js'
 
@@ -36,6 +37,7 @@ export default function App() {
     }
 
     async function getUser(nameEntered) {
+        Keyboard.dismiss()
         try {
             let response = await fetch(
                 API_URL, {
