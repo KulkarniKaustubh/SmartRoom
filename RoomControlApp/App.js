@@ -9,6 +9,9 @@ import {
 } from 'react-native'
 import styles from './styles.js'
 
+import LightColor from './components/LightColor'
+import API_URL from './Globals'
+
 export default function App() {
 
     const [name, setName] = React.useState("")
@@ -17,44 +20,24 @@ export default function App() {
 
     function showErrorText() {
         return (
-            <Text>User not found.</Text>
+            <Text>Enter a valid username.</Text>
         )
     }
 
-    function getAllProperties(json) {
+    function getAllSettings(json) {
         return (
-            <View>
+            <View style={styles.settings_container}>
                 <Text style={styles.name}>Hey {json.name}!</Text>
-                <Text>Light Color : {json.light_color}</Text>
+                <LightColor lightColor={json.light_color} id={json._id}/>
                 <Text>Light:  {json.light_on? 'On' : 'Off'}</Text>
             </View>
         )
     }
 
-    async function putTest() {
-        try {
-
-            let response = await fetch(
-                'https://6c43cf0b82b1.ngrok.io/users/2', {
-                method: 'PUT',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: 'VG'
-                })
-            })
-            console.log('Status ' + response.status)
-        } catch (err) {
-            console.log('Error is ' + err)
-        }
-    }
-
     async function getUser(nameEntered) {
         try {
             let response = await fetch(
-                'https://6c43cf0b82b1.ngrok.io/users', {
+                API_URL, {
                     method: 'GET'
                 })
                 let json = await response.json()
@@ -84,15 +67,8 @@ export default function App() {
                     >
                     <Text style={styles.buttonText}>Get my settings</Text>
                 </TouchableOpacity>
-                {userJSON? getAllProperties(userJSON) : showErrorText()}
-                <TouchableOpacity
-                    style={styles.buttons}
-                    onPress={() => putTest()}
-                    >
-                    <Text style={styles.buttonText}>Change name</Text>
-                </TouchableOpacity>
-
+                {userJSON? getAllSettings(userJSON) : showErrorText()}
 
             </View>
         )
-    }
+}

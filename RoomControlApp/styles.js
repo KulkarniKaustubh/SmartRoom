@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    settings_container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     textInput: {
         textAlign: 'center',
         borderColor: 'black',
