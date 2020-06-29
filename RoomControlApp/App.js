@@ -10,6 +10,7 @@ import {
 import styles from './styles.js'
 
 import LightColor from './components/LightColor'
+import LightSwitch from './components/LightSwitch'
 import API_URL from './Globals'
 
 export default function App() {
@@ -29,7 +30,7 @@ export default function App() {
             <View style={styles.settings_container}>
                 <Text style={styles.name}>Hey {json.name}!</Text>
                 <LightColor lightColor={json.light_color} id={json._id}/>
-                <Text>Light:  {json.light_on? 'On' : 'Off'}</Text>
+                <LightSwitch lightOn={json.light_on} id={json._id}/>
             </View>
         )
     }
