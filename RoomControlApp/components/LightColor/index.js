@@ -12,13 +12,19 @@ function LightColor({ lightColor, id }) {
 
     const [currentColor, setCurrentColor] = React.useState(lightColor)
 
+    React.useEffect(() => {
+      setCurrentColor(lightColor);
+    }, [lightColor])
+
     function displayCurrentColor() {
         return (
-            <Text style={(currentColor == "red")?
-                styles.red :
-                (currentColor == "blue")?
-                styles.blue :
-                styles.green}
+            <Text style={[
+                    styles.buttons,
+                    (currentColor == "red")? styles.redButton :
+                    (currentColor == "blue")? styles.blueButton :
+                    styles.greenButton,
+                    styles.currentButton
+                ]}
                 >
                 {currentColor}
             </Text>
@@ -100,23 +106,23 @@ function LightColor({ lightColor, id }) {
                     style={[styles.buttons, styles.redButton]}
                     onPress={() => changeToRed(id)}
                     >
-                    <Text style={styles.buttonText}>Red</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={[styles.buttons, styles.blueButton]}
-                    onPress={() => changeToBlue(id)}
-                    >
-                    <Text style={styles.buttonText}>Blue</Text>
+                    <Text style={{color: '#b71c1c'}}>red</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.buttons, styles.greenButton]}
                     onPress={() => changeToGreen(id)}
                     >
-                    <Text style={styles.buttonText}>Green</Text>
+                    <Text style={{color: '#1b5e20'}}>green</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.buttons, styles.blueButton]}
+                    onPress={() => changeToBlue(id)}
+                    >
+                    <Text style={{color: '#0d47a1'}}>blue</Text>
                 </TouchableOpacity>
             </View>
         </View>
     )
 }
 
-        export default LightColor
+export default LightColor

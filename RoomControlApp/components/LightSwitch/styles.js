@@ -7,35 +7,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttons: {
-        margin: 10,
+        margin: 20,
         padding: 20,
         borderRadius: 10,
+        paddingLeft: 80,
+        paddingRight: 80,
+        borderWidth: 1
     },
-    redButton: {
-        backgroundColor: 'red'
+    onButton: {
+        backgroundColor: '#fff59d',
+        borderColor: 'orange'
     },
-    blueButton: {
-        backgroundColor: 'blue'
-    },
-    greenButton: {
-        backgroundColor: 'green'
-    },
-    buttonText: {
-        color: 'white'
-    },
-    buttonsView: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    red: {
-        color: 'red'
-    },
-    blue: {
-        color: 'blue'
-    },
-    green: {
-        color: 'green'
+    offButton: {
+        backgroundColor: '#bdbdbd',
+        borderColor: 'black'
     }
 })
 
