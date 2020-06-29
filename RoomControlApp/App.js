@@ -7,11 +7,13 @@ import {
     TextInput,
     TouchableOpacity
 } from 'react-native'
+import styles from './styles.js'
 
 export default function App() {
 
     const [name, setName] = React.useState("")
     const [userJSON, setUserJSON] = React.useState(null)
+    const [userID, setUserID] = React.useState(0)
 
     function showErrorText() {
         return (
@@ -22,7 +24,7 @@ export default function App() {
     function getAllProperties(json) {
         return (
             <View>
-                <Text>{json.name}</Text>
+                <Text style={styles.name}>Hey {json.name}!</Text>
                 <Text>Light Color : {json.light_color}</Text>
                 <Text>Light:  {json.light_on? 'On' : 'Off'}</Text>
             </View>
@@ -32,12 +34,16 @@ export default function App() {
     async function getUser(nameEntered) {
       try {
         let response = await fetch(
-          'http://620854884fa3.ngrok.io/users'
+          'https://6c43cf0b82b1.ngrok.io/users',
+          {
+              method: 'GET'
+          }
         )
         let json = await response.json()
         for (let i=0; i < json.length; ++i) {
             if (nameEntered == json[i].name) {
                 setUserJSON(json[i])
+                setUserID(json[i]._id)
                 break
             }
             setUserJSON(null)
@@ -67,30 +73,3 @@ export default function App() {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    textInput: {
-        textAlign: 'center',
-        borderColor: 'black',
-        borderRadius: 10,
-        borderWidth: 1,
-        padding: 10
-    },
-    buttons: {
-        margin: 10,
-        padding: 10,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 10,
-        backgroundColor: 'black'
-    },
-    buttonText: {
-        color: 'white'
-    }
-})
