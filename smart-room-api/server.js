@@ -10,4 +10,4 @@ app.use(express.json())
 const usersRouter = require('./routes/smartRoomRoutes')
 app.use('/users', usersRouter)
 
-app.listen(8080, '0.0.0.0', () => console.log('Server started ' + mongoose.version))
+app.listen(8080, () => console.log('Server started ' + mongoose.version))
