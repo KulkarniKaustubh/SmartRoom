@@ -31,45 +31,68 @@ export default function App() {
         )
     }
 
-    async function getUser(nameEntered) {
-      try {
-        let response = await fetch(
-          'https://6c43cf0b82b1.ngrok.io/users',
-          {
-              method: 'GET'
-          }
-        )
-        let json = await response.json()
-        for (let i=0; i < json.length; ++i) {
-            if (nameEntered == json[i].name) {
-                setUserJSON(json[i])
-                setUserID(json[i]._id)
-                break
-            }
-            setUserJSON(null)
+    async function putTest() {
+        try {
+
+            let response = await fetch(
+                'https://6c43cf0b82b1.ngrok.io/users/2', {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: 'VG'
+                })
+            })
+            console.log('Status ' + response.status)
+        } catch (err) {
+            console.log('Error is ' + err)
         }
-      } catch (error) {
-        console.error(error)
-      }
     }
 
-    return (
-        <View style={styles.container}>
-            <TextInput
-                style={styles.textInput}
-                placeholder="Enter your name"
-                onChangeText={text => setName(text)}
-                ></TextInput>
-            <TouchableOpacity
-                style={styles.buttons}
-                onPress={() => getUser(name)}
-                >
-                <Text style={styles.buttonText}>Get my settings</Text>
-            </TouchableOpacity>
-            {userJSON? getAllProperties(userJSON) : showErrorText()}
+    async function getUser(nameEntered) {
+        try {
+            let response = await fetch(
+                'https://6c43cf0b82b1.ngrok.io/users', {
+                    method: 'GET'
+                })
+                let json = await response.json()
+                for (let i=0; i < json.length; ++i) {
+                    if (nameEntered == json[i].name) {
+                        setUserJSON(json[i])
+                        setUserID(json[i]._id)
+                        break
+                    }
+                    setUserJSON(null)
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        return (
+            <View style={styles.container}>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder="Enter your name"
+                    onChangeText={text => setName(text)}
+                    ></TextInput>
+                <TouchableOpacity
+                    style={styles.buttons}
+                    onPress={() => getUser(name)}
+                    >
+                    <Text style={styles.buttonText}>Get my settings</Text>
+                </TouchableOpacity>
+                {userJSON? getAllProperties(userJSON) : showErrorText()}
+                <TouchableOpacity
+                    style={styles.buttons}
+                    onPress={() => putTest()}
+                    >
+                    <Text style={styles.buttonText}>Change name</Text>
+                </TouchableOpacity>
 
 
-
-        </View>
-    )
-}
+            </View>
+        )
+    }
