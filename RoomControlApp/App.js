@@ -10,7 +10,6 @@ import {
 
 export default function App() {
 
-    const [loggedIn, setLoggedIn] = React.useState(false)
     const [name, setName] = React.useState("")
     const [userJSON, setUserJSON] = React.useState(null)
 
