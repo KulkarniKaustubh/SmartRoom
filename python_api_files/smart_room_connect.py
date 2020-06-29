@@ -5,11 +5,13 @@ import time
 
 refreshRate = 2
 
-# while True:
-response = requests.get('http://620854884fa3.ngrok.io/users')
+prevList = []
 
-print (response.status_code)
-list = response.json()
-print (list)
+while True:
+    response = requests.get('http://620854884fa3.ngrok.io/users')
 
-# time.sleep(refreshRate)
+    print (response.status_code)
+    list = response.json()
+    print (list)
+
+    time.sleep(refreshRate)
