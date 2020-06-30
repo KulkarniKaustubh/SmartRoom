@@ -1,6 +1,6 @@
 # Server
 
-Server hosting the API. <br>
+Server hosting the API. <br><br>
 To run:
 
 ```
