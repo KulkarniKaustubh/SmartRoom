@@ -1,4 +1,6 @@
 import RPi.GPIO as GPIO
+import requests
+import json
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -16,7 +18,7 @@ GPIO.output(BLUE,0)
 
 try:
     while (True):
-        
+
         request = int(input("RGB—>"))
         if(request == 1):
             GPIO.output(RED,GPIO.HIGH)
@@ -30,7 +32,7 @@ try:
             GPIO.output(BLUE,GPIO.HIGH)
             GPIO.output(GREEN, GPIO.LOW)
             GPIO.output(RED, GPIO.LOW)
-        
+
 
 except KeyboardInterrupt:
     GPIO.cleanup()
