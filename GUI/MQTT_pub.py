@@ -11,8 +11,8 @@ def lightClickOn():
     lightOn.place(x=465, y=120)
     lightOn.config(font=(FONT, 12))
     lightOn.after(1000, lambda: lightOn.destroy())
-    #publish.single("Automation/Lights", "LIGHT_ON", hostname="test.mosquitto.org")
-    # print("sent)")
+    publish.single("vishwas/lights", "LIGHT_ON", hostname="test.mosquitto.org")
+    print("sent)")
 
 
 def lightClickOff():
@@ -20,7 +20,8 @@ def lightClickOff():
     lightOff.place(x=465, y=120)
     lightOff.config(font=(FONT, 12))
     lightOff.after(1000, lambda: lightOff.destroy())
-    #publish.single("Automation/Lights", "LIGHT_OFF", hostname="test.mosquitto.org")
+    publish.single("vishwas/lights", "LIGHT_OFF",
+                   hostname="test.mosquitto.org")
 
 
 def change_rgb():
@@ -30,9 +31,8 @@ def change_rgb():
     changeLabel.place(x=425, y=120)
     changeLabel.config(font=(FONT, 12))
     changeLabel.after(1000, lambda: changeLabel.destroy())
-    #publish.single("test", "OFF", hostname="test.mosquitto.org")
-    #publish.single("test", "OFF", hostname="test.mosquitto.org")
-    #publish.single("test", "OFF", hostname="test.mosquitto.org")
+    msg = str(r.get()) + ":" + str(g.get()) + ":" + str(b.get())
+    #publish.single("vishwas/colour", msg, hostname="iot.eclipse.org")
 
 
 def coolerClickOff():
@@ -40,7 +40,7 @@ def coolerClickOff():
     coolerOff.place(x=465, y=120)
     coolerOff.config(font=(FONT, 12))
     coolerOff.after(1000, lambda: coolerOff.destroy())
-    #publish.single("Automation/Cooler", "COOLER_OFF", hostname="test.mosquitto.org")
+    #publish.single("Automation/Cooler", "COOLER_OFF", hostname="iot.eclipse.org")
 
 
 def coolerClickOn():
@@ -48,7 +48,7 @@ def coolerClickOn():
     coolerOn.place(x=465, y=120)
     coolerOn.config(font=(FONT, 12))
     coolerOn.after(1000, lambda: coolerOn.destroy())
-    #publish.single("Automation/Cooler", "COOLER_ON", hostname="test.mosquitto.org")
+    #publish.single("Automation/Cooler", "COOLER_ON", hostname="iot.eclipse.org")
 
 
 def coolerSpeed():
@@ -57,7 +57,7 @@ def coolerSpeed():
     sLabel.place(x=470, y=120)
     sLabel.config(font=(FONT, 12))
     sLabel.after(1000, lambda: sLabel.destroy())
-    #publish.single("Automation/CoolerSpeed", str(speed.get), hostname="test.mosquitto.org")
+    #publish.single("Automation/CoolerSpeed", str(speed.get), hostname="iot.eclipse.org")
 
 
 def coolType():
@@ -66,7 +66,7 @@ def coolType():
     coolLabel.place(x=430, y=120)
     coolLabel.config(font=(FONT, 12))
     coolLabel.after(1000, lambda: coolLabel.destroy())
-    #publish.single("Automation/CoolerType", "COOL", hostname="test.mosquitto.org")
+    #publish.single("Automation/CoolerType", "COOL", hostname="iot.eclipse.org")
 
 
 def coolSwingType():
@@ -75,7 +75,7 @@ def coolSwingType():
     coolSwingLabel.place(x=400, y=120)
     coolSwingLabel.config(font=(FONT, 12))
     coolSwingLabel.after(1000, lambda: coolSwingLabel.destroy())
-    #publish.single("Automation/CoolerType", "COOLSWING", hostname="test.mosquitto.org")
+    #publish.single("Automation/CoolerType", "COOLSWING", hostname="iot.eclipse.org")
 
 
 def swingType():
@@ -84,7 +84,7 @@ def swingType():
     swingLabel.place(x=430, y=120)
     swingLabel.config(font=(FONT, 12))
     swingLabel.after(1000, lambda: swingLabel.destroy())
-    #publish.single("Automation/CoolerType", "SWING", hostname="test.mosquitto.org")
+    #publish.single("Automation/CoolerType", "SWING", hostname="iot.eclipse.org")
 
 
 ########MAIN WINDOW OPTIONS############
