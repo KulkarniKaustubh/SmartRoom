@@ -5,7 +5,7 @@ import json
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-API_URL = 'https://6c43cf0b82b1.ngrok.io/users'
+API_URL = 'https://06b0f0dd04bf.ngrok.io/users'
 RED = 25
 GREEN = 24
 BLUE = 23
