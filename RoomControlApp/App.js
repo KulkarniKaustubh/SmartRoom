@@ -29,7 +29,7 @@ export default function App() {
     function getAllSettings(json) {
         return (
             <View style={styles.settings_container}>
-                <Text style={styles.name}>Hey {json.name}!</Text>
+                <Text style={[styles.name, {color: 'black'}]}>Hey {json.name}!</Text>
                 <LightColor lightColor={json.light_color} id={json._id}/>
                 <LightSwitch lightOn={json.light_on} id={json._id}/>
             </View>

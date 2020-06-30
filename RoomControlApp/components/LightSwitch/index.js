@@ -47,7 +47,7 @@ function LightSwitch({ lightOn, id }) {
 
     return (
         <View style={styles.container}>
-            <Text>Toggle the light switch by tapping on it.</Text>
+            <Text style={{color: 'grey'}}>Toggle the light switch by tapping on it.</Text>
             <TouchableOpacity
                 style={[styles.buttons, (switchStatus)? styles.onButton : styles.offButton]}
                 onPress={() => toggleLight(id)}

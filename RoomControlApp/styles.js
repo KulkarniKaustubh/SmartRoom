@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -13,24 +13,25 @@ const styles = StyleSheet.create({
     },
     textInput: {
         textAlign: 'center',
-        borderColor: 'black',
+        borderColor: '#f57f17',
         borderRadius: 10,
-        borderWidth: 1,
-        padding: 20
+        padding: 20,
+        backgroundColor: '#fff8e1',
+        color: '#ff8f00'
     },
     buttons: {
         margin: 20,
         padding: 20,
-        borderColor: 'black',
+        borderColor: '#ff8f00',
         borderWidth: 1,
         borderRadius: 10,
-        backgroundColor: 'black'
+        backgroundColor: '#fff8e1'
     },
     buttonText: {
-        color: 'white'
+        color: '#ff8f00'
     },
     name: {
-        fontSize: 40
+        fontSize: 30
     }
 })
 

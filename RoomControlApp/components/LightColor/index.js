@@ -100,7 +100,7 @@ function LightColor({ lightColor, id }) {
     return (
         <View style={styles.container}>
             {displayCurrentColor()}
-            <Text>Tap on the buttons to change the color of your light.</Text>
+            <Text style={{color: 'grey'}}>Tap on the buttons to change the color of your light.</Text>
             <View style={styles.buttonsView}>
                 <TouchableOpacity
                     style={[styles.buttons, styles.redButton]}
