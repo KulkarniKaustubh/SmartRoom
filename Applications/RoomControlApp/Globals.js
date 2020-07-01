@@ -1,5 +1,5 @@
 function getAPI_URL() {
-    return 'https://06b0f0dd04bf.ngrok.io/users'
+    return 'https://smartroomapi.serveousercontent.com/users'
 }
 
 export default getAPI_URL()

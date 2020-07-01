@@ -5,7 +5,7 @@ import json
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-API_URL = 'https://06b0f0dd04bf.ngrok.io/users'
+API_URL = 'https://smartroomapi.serveousercontent.com/users'
 RED = 25
 GREEN = 24
 BLUE = 23
