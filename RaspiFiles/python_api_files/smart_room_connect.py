@@ -32,32 +32,39 @@ def greenLight():
     GPIO.output(GREEN, GPIO.LOW)
     GPIO.output(RED, GPIO.LOW)
 
+def switchOff():
+    GPIO.output(BLUE,GPIO.LOW)
+    GPIO.output(GREEN, GPIO.LOW)
+    GPIO.output(RED, GPIO.LOW)
+
 response = requests.get(API_URL)
 
 if (response.status_code == 200):
     prevList = response.json()
 else:
-    print("Error ", response.status_code)
+    print('Error ', response.status_code)
 
 try:
     while True:
         response = requests.get(API_URL)
 
-        # print (response.status_code)
+        # print(response.status_code)
 
         list = response.json()
 
-        # print (list)
+        # print(list)
 
         if (list == prevList):
-            print("same, continuing")
+            print('same')
             continue
         else:
+            print('changed')
             prevList = list
 
         user = list[0]
 
         if (user['light_on']):
+            print('ON')
             color = user['light_color']
             if (color == 'red'):
                 redLight()
@@ -65,6 +72,9 @@ try:
                 blueLight()
             if (color == 'green'):
                 greenLight()
+        else:
+            switchOff()
+            print('OFF')
 
 except KeyboardInterrupt:
     GPIO.cleanup()
